@@ -70,7 +70,7 @@
     margin: auto;
     display: block;
     max-width: 90%;
-    max-height: 80vh;
+    max-height: 70vh; /* Уменьшил высоту, чтобы было место для текста */
 }
 
 .close {
@@ -90,3 +90,20 @@
         text-decoration: none;
         cursor: pointer;
     }
+
+/* Стили для тега и описания в модальном окне */
+.modal-tag {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.modal-description {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 0 20px;
+}

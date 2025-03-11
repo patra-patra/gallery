@@ -87,7 +87,7 @@ function createImageCard(imageSrc, altText, tag, description) {
     img.alt = altText;
 
     // Добавляем обработчик клика на изображение
-    img.addEventListener("click", () => openModal(imageSrc));
+    img.addEventListener("click", () => openModal(imageSrc, tag, description));
 
     const tagElement = document.createElement("div");
     tagElement.className = "image-tag";
@@ -119,11 +119,16 @@ function checkImageExists(imageSrc, callback) {
 }
 
 // Функция для открытия модального окна
-function openModal(imageSrc) {
+function openModal(imageSrc, tag, description) {
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modalImage");
+    const modalTag = document.getElementById("modalTag");
+    const modalDescription = document.getElementById("modalDescription");
+
     modal.style.display = "block"; // Показываем модальное окно
-    modalImg.src = imageSrc; // Устанавливаем изображение в модальное окно
+    modalImg.src = imageSrc; // Устанавливаем изображение
+    modalTag.textContent = tag; // Устанавливаем тег
+    modalDescription.textContent = description; // Устанавливаем описание
 }
 
 // Функция для закрытия модального окна
