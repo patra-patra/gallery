@@ -86,6 +86,9 @@ function createImageCard(imageSrc, altText, tag, description) {
     img.src = imageSrc;
     img.alt = altText;
 
+    // Добавляем обработчик клика на изображение
+    img.addEventListener("click", () => openModal(imageSrc));
+
     const tagElement = document.createElement("div");
     tagElement.className = "image-tag";
     tagElement.textContent = tag;
@@ -114,6 +117,31 @@ function checkImageExists(imageSrc, callback) {
     };
     img.src = imageSrc;
 }
+
+// Функция для открытия модального окна
+function openModal(imageSrc) {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImage");
+    modal.style.display = "block"; // Показываем модальное окно
+    modalImg.src = imageSrc; // Устанавливаем изображение в модальное окно
+}
+
+// Функция для закрытия модального окна
+function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none"; // Скрываем модальное окно
+}
+
+// Закрытие модального окна при клике на крестик
+document.querySelector(".close").addEventListener("click", closeModal);
+
+// Закрытие модального окна при клике вне изображения
+window.addEventListener("click", (event) => {
+    const modal = document.getElementById("modal");
+    if (event.target === modal) {
+        closeModal();
+    }
+});
 
 // Генерация списка изображений и добавление в галерею
 function loadGallery() {
