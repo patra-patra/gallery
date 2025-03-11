@@ -157,9 +157,24 @@ function filterGallery(selectedTag) {
     cards.forEach(card => {
         const cardTag = card.dataset.tag;
         if (selectedTag === "all" || cardTag === selectedTag) {
-            card.style.display = "block"; // Показываем карточку
+            // Показываем карточку с анимацией
+            card.classList.remove("hidden");
         } else {
-            card.style.display = "none"; // Скрываем карточку
+            // Скрываем карточку с анимацией
+            card.classList.add("hidden");
+
+            // Удаляем карточку из потока документа после завершения анимации
+            setTimeout(() => {
+                card.style.display = "none";
+            }, 500); // Задержка равна длительности анимации (0.5s)
+        }
+    });
+
+    // Показываем карточки, которые соответствуют выбранному тегу
+    cards.forEach(card => {
+        const cardTag = card.dataset.tag;
+        if (selectedTag === "all" || cardTag === selectedTag) {
+            card.style.display = "block"; // Возвращаем карточку в поток документа
         }
     });
 }
