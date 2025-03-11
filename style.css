@@ -1,10 +1,20 @@
-﻿/* Общие стили для заголовка */
+﻿/* Подключение пользовательского шрифта */
+@font-face {
+    font-family: 'Antarctic'; /* Название шрифта, которое будет использоваться в CSS */
+    src: url('fonts/Antarctic.otf') format('opentype'); /* Путь к файлу шрифта */
+    font-weight: normal; /* Насыщенность шрифта */
+    font-style: normal; /* Стиль шрифта */
+}
+
+/* Применение шрифта к заголовку h1 */
 h1 {
+    font-family: 'Antarctic', Arial, sans-serif; /* Используем подключенный шрифт */
     text-align: center;
-    font-family: Arial, sans-serif;
     color: #333;
     margin-bottom: 20px;
+    font-size: 90px;
 }
+
 
 /* Стили для фильтра */
 .filter {
