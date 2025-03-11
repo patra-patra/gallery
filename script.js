@@ -156,25 +156,18 @@ function filterGallery(selectedTag) {
 
     cards.forEach(card => {
         const cardTag = card.dataset.tag;
+
         if (selectedTag === "all" || cardTag === selectedTag) {
             // Показываем карточку с анимацией
-            card.classList.remove("hidden");
+            card.classList.remove("hidden", "removed");
         } else {
             // Скрываем карточку с анимацией
             card.classList.add("hidden");
 
             // Удаляем карточку из потока документа после завершения анимации
             setTimeout(() => {
-                card.style.display = "none";
+                card.classList.add("removed");
             }, 500); // Задержка равна длительности анимации (0.5s)
-        }
-    });
-
-    // Показываем карточки, которые соответствуют выбранному тегу
-    cards.forEach(card => {
-        const cardTag = card.dataset.tag;
-        if (selectedTag === "all" || cardTag === selectedTag) {
-            card.style.display = "block"; // Возвращаем карточку в поток документа
         }
     });
 }

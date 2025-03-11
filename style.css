@@ -1,4 +1,5 @@
-﻿h1 {
+﻿/* Общие стили для заголовка */
+h1 {
     text-align: center;
     font-family: Arial, sans-serif;
     color: #333;
@@ -24,7 +25,7 @@
         cursor: pointer;
     }
 
-/* Галерея */
+/* Стили для галереи */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -33,32 +34,39 @@
     padding: 20px;
 }
 
-/* Карточка изображения */
-/* Анимация для карточек */
+/* Стили для карточки изображения */
 .image-card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     width: 300px;
     text-align: center;
     opacity: 1; /* По умолчанию карточка видима */
-    visibility: visible; /* По умолчанию карточка видима */
+    transform: scale(1); /* По умолчанию карточка в нормальном размере */
 }
 
+    /* Стили для скрытой карточки */
     .image-card.hidden {
         opacity: 0; /* Карточка становится прозрачной */
-        visibility: hidden; /* Карточка скрыта */
-        transition: opacity 0.5s ease, visibility 0.5s ease;
+        transform: scale(0.9); /* Карточка немного уменьшается */
+        pointer-events: none; /* Отключаем взаимодействие с карточкой */
     }
 
+    /* Стили для полностью скрытой карточки */
+    .image-card.removed {
+        display: none; /* Карточка полностью скрыта и не занимает место */
+    }
+
+    /* Эффект при наведении на карточку */
     .image-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px) scale(1.05); /* Карточка поднимается и увеличивается */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Тень становится больше */
     }
 
+    /* Стили для изображения внутри карточки */
     .image-card img {
         width: 100%;
         height: 200px;
@@ -66,6 +74,7 @@
         cursor: pointer;
     }
 
+/* Стили для тега изображения */
 .image-tag {
     background-color: #333;
     color: #fff;
@@ -75,6 +84,7 @@
     text-transform: uppercase;
 }
 
+/* Стили для описания изображения */
 .image-description {
     padding: 10px;
     font-size: 14px;
@@ -96,13 +106,15 @@
     background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
 }
 
+/* Стили для изображения в модальном окне */
 .modal-content {
     margin: auto;
     display: block;
     max-width: 90%;
-    max-height: 70vh; /* Уменьшил высоту, чтобы было место для текста */
+    max-height: 70vh; /* Уменьшаем высоту, чтобы было место для текста */
 }
 
+/* Стили для кнопки закрытия модального окна */
 .close {
     position: absolute;
     top: 20px;
@@ -114,6 +126,7 @@
     cursor: pointer;
 }
 
+    /* Эффект при наведении на кнопку закрытия */
     .close:hover,
     .close:focus {
         color: #bbb;
@@ -121,7 +134,7 @@
         cursor: pointer;
     }
 
-/* Стили для тега и описания в модальном окне */
+/* Стили для тега в модальном окне */
 .modal-tag {
     text-align: center;
     color: #fff;
@@ -130,6 +143,7 @@
     margin-top: 10px;
 }
 
+/* Стили для описания в модальном окне */
 .modal-description {
     text-align: center;
     color: #fff;
