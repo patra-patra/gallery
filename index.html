@@ -8,14 +8,23 @@
 </head>
 <body>
     <h1>Галерея</h1>
+
+    <!-- Фильтр по тегам -->
+    <div class="filter">
+        <label for="tagFilter">Фильтр по тегам:</label>
+        <select id="tagFilter">
+            <option value="all">Все</option>
+        </select>
+    </div>
+
     <div class="gallery" id="gallery"></div>
 
     <!-- Модальное окно -->
     <div id="modal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage">
-        <div id="modalTag" class="modal-tag"></div> <!-- Тег -->
-        <div id="modalDescription" class="modal-description"></div> <!-- Описание -->
+        <div id="modalTag" class="modal-tag"></div>
+        <div id="modalDescription" class="modal-description"></div>
     </div>
 
     <script src="script.js" charset="utf-8"></script>

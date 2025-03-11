@@ -81,6 +81,7 @@ const metadata = [
 function createImageCard(imageSrc, altText, tag, description) {
     const card = document.createElement("div");
     card.className = "image-card";
+    card.dataset.tag = tag; // Добавляем тег как data-атрибут
 
     const img = document.createElement("img");
     img.src = imageSrc;
@@ -148,6 +149,43 @@ window.addEventListener("click", (event) => {
     }
 });
 
+// Функция для фильтрации изображений по тегу
+function filterGallery(selectedTag) {
+    const gallery = document.getElementById("gallery");
+    const cards = gallery.querySelectorAll(".image-card");
+
+    cards.forEach(card => {
+        const cardTag = card.dataset.tag;
+        if (selectedTag === "all" || cardTag === selectedTag) {
+            card.style.display = "block"; // Показываем карточку
+        } else {
+            card.style.display = "none"; // Скрываем карточку
+        }
+    });
+}
+
+// Функция для динамического создания списка тегов
+function createTagFilter() {
+    const tagFilter = document.getElementById("tagFilter");
+
+    // Собираем уникальные теги из metadata
+    const uniqueTags = [...new Set(metadata.map(item => `#${item.theme.toLowerCase()}`))];
+
+    // Добавляем теги в выпадающий список
+    uniqueTags.forEach(tag => {
+        const option = document.createElement("option");
+        option.value = tag;
+        option.textContent = tag;
+        tagFilter.appendChild(option);
+    });
+
+    // Добавляем обработчик изменения выбора
+    tagFilter.addEventListener("change", (event) => {
+        const selectedTag = event.target.value;
+        filterGallery(selectedTag);
+    });
+}
+
 // Генерация списка изображений и добавление в галерею
 function loadGallery() {
     const gallery = document.getElementById("gallery");
@@ -168,5 +206,11 @@ function loadGallery() {
     });
 }
 
-// Загружаем галерею
-loadGallery();
+// Инициализация
+function init() {
+    loadGallery();
+    createTagFilter();
+}
+
+// Запуск
+init();
