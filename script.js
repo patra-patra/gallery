@@ -1,18 +1,81 @@
-// Функция для определения тега по постфиксу
-function getTagByPostfix(postfix) {
-    switch (postfix) {
-        case "hum":
-            return "#люди";
-        case "anim":
-            return "#животные";
-        case "scen":
-            return "#пейзаж";
-        case "still":
-            return "#натюрморт";
-        default:
-            return "#другое";
+// Встроенные данные из metadata.json
+const metadata = [
+    {
+        "filename": "image1.jpg",
+        "description": "Портрет рыжей девушки",
+        "theme": "Люди"
+    },
+    {
+        "filename": "image2.jpg",
+        "description": "Городской пейзаж",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image3.jpg",
+        "description": "Милый кот",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image4.jpg",
+        "description": "Натюрморт с грушами",
+        "theme": "Натюрморт"
+    },
+    {
+        "filename": "image5.jpg",
+        "description": "Красивый кот",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image6.jpg",
+        "description": "Красивый пейзаж",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image7.jpg",
+        "description": "Морской пейзаж",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image8.jpg",
+        "description": "Девушка на белом фоне",
+        "theme": "Люди"
+    },
+    {
+        "filename": "image9.jpg",
+        "description": "Байкал",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image10.jpg",
+        "description": "Рыжая девочка с косичками",
+        "theme": "Люди"
+    },
+    {
+        "filename": "image11.jpg",
+        "description": "Белый котенок",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image12.jpg",
+        "description": "Черный кот",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image13.jpg",
+        "description": "Зарянка",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image14.jpg",
+        "description": "Белка",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image15.jpg",
+        "description": "Олененок",
+        "theme": "Животные"
     }
-}
+];
 
 // Функция для создания карточки изображения
 function createImageCard(imageSrc, altText, tag, description) {
@@ -42,10 +105,12 @@ function createImageCard(imageSrc, altText, tag, description) {
 function checkImageExists(imageSrc, callback) {
     const img = new Image();
     img.onload = function () {
-        callback(true); // Изображение существует
+        console.log(`Изображение ${imageSrc} загружено`);
+        callback(true);
     };
     img.onerror = function () {
-        callback(false); // Изображение не существует
+        console.error(`Изображение ${imageSrc} не найдено`);
+        callback(false);
     };
     img.src = imageSrc;
 }
@@ -54,22 +119,20 @@ function checkImageExists(imageSrc, callback) {
 function loadGallery() {
     const gallery = document.getElementById("gallery");
 
-    for (let i = 1; i <= 15; i++) {
-        const imageTypes = ["hum", "scen", "anim", "still"];
-        imageTypes.forEach(type => {
-            const imageSrc = `images/image${i}_${type}.jpg`;
-            checkImageExists(imageSrc, (exists) => {
-                if (exists) {
-                    const fileName = imageSrc.split("/").pop();
-                    const postfix = fileName.split("_")[1].split(".")[0];
-                    const tag = getTagByPostfix(postfix);
-                    const description = `Описание изображения ${fileName}`; // Здесь можно добавить логику для считывания метаданных
-                    const imageCard = createImageCard(imageSrc, fileName, tag, description);
-                    gallery.appendChild(imageCard);
-                }
-            });
+    // Проходим по каждому изображению
+    metadata.forEach(item => {
+        const imageSrc = `images/${item.filename}`;
+        checkImageExists(imageSrc, (exists) => {
+            if (exists) {
+                const tag = `#${item.theme.toLowerCase()}`; // Формируем тег из темы
+                const description = item.description; // Описание из JSON
+                const imageCard = createImageCard(imageSrc, item.filename, tag, description);
+                gallery.appendChild(imageCard);
+            } else {
+                console.error(`Изображение ${imageSrc} не найдено`);
+            }
         });
-    }
+    });
 }
 
 // Загружаем галерею

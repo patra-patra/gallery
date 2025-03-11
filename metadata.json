@@ -1,0 +1,77 @@
+[
+    {
+        "filename": "image1.jpg",
+        "description": "Портрет рыжей девушки",
+        "theme": "Люди"
+    },
+    {
+        "filename": "image2.jpg",
+        "description": "Городской пейзаж",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image3.jpg",
+        "description": "Милый кот",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image4.jpg",
+        "description": "Натюрморт с грушами",
+        "theme": "Натюрморт"
+    },
+    {
+        "filename": "image5.jpg",
+        "description": "Красивый кот",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image6.jpg",
+        "description": "Красивый пейзаж",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image7.jpg",
+        "description": "Морской пейзаж",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image8.jpg",
+        "description": "Девушка на белом фоне",
+        "theme": "Люди"
+    },
+    {
+        "filename": "image9.jpg",
+        "description": "Байкал",
+        "theme": "Пейзаж"
+    },
+    {
+        "filename": "image10.jpg",
+        "description": "Рыжая девочка с косичками",
+        "theme": "Люди"
+    },
+    {
+        "filename": "image11.jpg",
+        "description": "Белый котенок",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image12.jpg",
+        "description": "Черный кот",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image13.jpg",
+        "description": "Зарянка",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image14.jpg",
+        "description": "Белка",
+        "theme": "Животные"
+    },
+    {
+        "filename": "image15.jpg",
+        "description": "Олененок",
+        "theme": "Животные"
+    }
+]
