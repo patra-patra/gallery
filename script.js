@@ -14,23 +14,28 @@ function getTagByPostfix(postfix) {
     }
 }
 
-// Функция для создания элемента изображения с тегами
-function createImageWrapper(imageSrc, altText, tag) {
-    const wrapper = document.createElement("div");
-    wrapper.className = "image-wrapper";
+// Функция для создания карточки изображения
+function createImageCard(imageSrc, altText, tag, description) {
+    const card = document.createElement("div");
+    card.className = "image-card";
 
     const img = document.createElement("img");
     img.src = imageSrc;
     img.alt = altText;
 
-    const tooltip = document.createElement("span");
-    tooltip.className = "tooltip";
-    tooltip.textContent = tag;
+    const tagElement = document.createElement("div");
+    tagElement.className = "image-tag";
+    tagElement.textContent = tag;
 
-    wrapper.appendChild(img);
-    wrapper.appendChild(tooltip);
+    const descriptionElement = document.createElement("div");
+    descriptionElement.className = "image-description";
+    descriptionElement.textContent = description;
 
-    return wrapper;
+    card.appendChild(img);
+    card.appendChild(tagElement);
+    card.appendChild(descriptionElement);
+
+    return card;
 }
 
 // Функция для проверки существования изображения
@@ -58,8 +63,9 @@ function loadGallery() {
                     const fileName = imageSrc.split("/").pop();
                     const postfix = fileName.split("_")[1].split(".")[0];
                     const tag = getTagByPostfix(postfix);
-                    const imageWrapper = createImageWrapper(imageSrc, fileName, tag);
-                    gallery.appendChild(imageWrapper);
+                    const description = `Описание изображения ${fileName}`; // Здесь можно добавить логику для считывания метаданных
+                    const imageCard = createImageCard(imageSrc, fileName, tag, description);
+                    gallery.appendChild(imageCard);
                 }
             });
         });
