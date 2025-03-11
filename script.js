@@ -1,20 +1,20 @@
-// Функция для определения тега по постфиксу
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ С‚РµРіР° РїРѕ РїРѕСЃС‚С„РёРєСЃСѓ
 function getTagByPostfix(postfix) {
     switch (postfix) {
         case "hum":
-            return "#люди";
+            return "#Р»СЋРґРё";
         case "anim":
-            return "#животные";
+            return "#Р¶РёРІРѕС‚РЅС‹Рµ";
         case "scen":
-            return "#пейзаж";
+            return "#РїРµР№Р·Р°Р¶";
         case "still":
-            return "#натюрморт";
+            return "#РЅР°С‚СЋСЂРјРѕСЂС‚";
         default:
-            return "#другое";
+            return "#РґСЂСѓРіРѕРµ";
     }
 }
 
-// Функция для создания элемента изображения с тегами
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃ С‚РµРіР°РјРё
 function createImageWrapper(imageSrc, altText, tag) {
     const wrapper = document.createElement("div");
     wrapper.className = "image-wrapper";
@@ -33,19 +33,19 @@ function createImageWrapper(imageSrc, altText, tag) {
     return wrapper;
 }
 
-// Функция для проверки существования изображения
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
 function checkImageExists(imageSrc, callback) {
     const img = new Image();
     img.onload = function () {
-        callback(true); // Изображение существует
+        callback(true); // РР·РѕР±СЂР°Р¶РµРЅРёРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
     };
     img.onerror = function () {
-        callback(false); // Изображение не существует
+        callback(false); // РР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
     };
     img.src = imageSrc;
 }
 
-// Генерация списка изображений и добавление в галерею
+// Р“РµРЅРµСЂР°С†РёСЏ СЃРїРёСЃРєР° РёР·РѕР±СЂР°Р¶РµРЅРёР№ Рё РґРѕР±Р°РІР»РµРЅРёРµ РІ РіР°Р»РµСЂРµСЋ
 function loadGallery() {
     const gallery = document.getElementById("gallery");
 
@@ -66,5 +66,5 @@ function loadGallery() {
     }
 }
 
-// Загружаем галерею
+// Р—Р°РіСЂСѓР¶Р°РµРј РіР°Р»РµСЂРµСЋ
 loadGallery();
