@@ -1,20 +1,39 @@
 ﻿/* Подключение пользовательского шрифта */
 @font-face {
-    font-family: 'Antarctic'; /* Название шрифта, которое будет использоваться в CSS */
-    src: url('fonts/Antarctic.otf') format('opentype'); /* Путь к файлу шрифта */
+    font-family: 'KreadonEB'; /* Название шрифта, которое будет использоваться в CSS */
+    src: url('fonts/Kreadon-EB.otf') format('opentype'); /* Путь к файлу шрифта */
+    font-weight: normal; /* Насыщенность шрифта */
+    font-style: normal; /* Стиль шрифта */
+}
+
+/* Подключение шрифта Playfair Display */
+@font-face {
+    font-family: 'PlayfairDisplay'; /* Название шрифта, которое будет использоваться в CSS */
+    src: url('fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype'); /* Путь к файлу шрифта */
+    font-weight: normal; /* Насыщенность шрифта */
+    font-style: normal; /* Стиль шрифта */
+}
+/* Подключение шрифта Montserrat */
+@font-face {
+    font-family: 'Montserrat'; /* Название шрифта, которое будет использоваться в CSS */
+    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype'); /* Путь к файлу шрифта */
     font-weight: normal; /* Насыщенность шрифта */
     font-style: normal; /* Стиль шрифта */
 }
 
 /* Применение шрифта к заголовку h1 */
 h1 {
-    font-family: 'Antarctic', Arial, sans-serif; /* Используем подключенный шрифт */
+    font-family: 'KreadonEB', Arial, sans-serif;
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
-    font-size: 90px;
+    margin-top: 5px; /* Еще меньше отступ сверху */
+    margin-bottom: 5px;
+    font-size: 70px;
 }
 
+body {
+    font-family: 'Montserrat', sans-serif; /* Основной шрифт для всего текста */
+}
 
 /* Стили для фильтра */
 .filter {
@@ -23,11 +42,13 @@ h1 {
 }
 
     .filter label {
+        font-family: 'Montserrat', sans-serif; /* Основной шрифт для всего текста */
         font-size: 16px;
         margin-right: 10px;
     }
 
     .filter select {
+        font-family: 'Montserrat', sans-serif; /* Основной шрифт для всего текста */
         padding: 5px 10px;
         font-size: 14px;
         border-radius: 5px;
@@ -160,4 +181,50 @@ h1 {
     font-size: 16px;
     margin-top: 10px;
     padding: 0 20px;
+}
+
+/* Стили для контейнера заголовка и фильтра */
+/* Стили для контейнера заголовка и фильтра */
+.header-container {
+    background-color: #4A90E2; /* Мягкий синий цвет */
+    width: 100%; /* На всю ширину экрана */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Выравнивание по центру */
+    margin: 0; /* Убираем внешние отступы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
+}
+
+    /* Стили для заголовка h1 внутри контейнера */
+    .header-container h1 {
+        color: #fff; /* Белый цвет текста */
+        margin-top: 0; /* Убираем отступ сверху */
+        margin-bottom: 10px; /* Отступ снизу */
+        font-size: 70px; /* Размер шрифта */
+    }
+
+    /* Стили для фильтра внутри контейнера */
+    .header-container .filter {
+        margin-bottom: 0; /* Убираем отступ снизу */
+    }
+
+        /* Стили для текста фильтра */
+        .header-container .filter label {
+            color: #fff; /* Белый цвет текста */
+            font-size: 16px; /* Размер шрифта */
+        }
+
+        /* Стили для выпадающего списка */
+        .header-container .filter select {
+            background-color: #fff; /* Белый фон */
+            color: #333; /* Темный текст */
+            border: 1px solid #ccc;
+            padding: 5px 10px; /* Отступы внутри */
+            font-size: 14px; /* Размер шрифта */
+            border-radius: 5px; /* Закругленные углы */
+            cursor: pointer; /* Курсор в виде указателя */
+        }
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* Основной шрифт */
 }
