@@ -42,7 +42,7 @@ body {
 /* Стили для фильтра */
 .filter {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
     .filter label {
@@ -76,10 +76,9 @@ body {
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background-color: #fff; /* Фон контейнера */
+    background-color: rgba(255, 255, 255, 0.6); /* Белый фон с прозрачностью 80% */
     border-radius: 12px; /* Закругленные углы */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
-
 }
 
 /* Стили для карточки изображения */
@@ -152,6 +151,7 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
+    text-align: center; /* Центрирование содержимого */
 }
 
 .modal-content {
@@ -191,6 +191,8 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block;
+    max-width: 90%; /* Ограничение ширины */
+    margin: 0 auto; /* Центрирование */
 }
 
 .modal-description {
@@ -202,18 +204,18 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     display: inline-block;
-    max-width: 80%;
-    margin: 10px auto;
+    max-width: 90%; /* Ограничение ширины */
+    margin: 10px auto; /* Центрирование */
 }
 
 /* Стили для контейнера заголовка и фильтра */
 .header-container {
     background-color: white;
     width: 100%; /* Ширина на всю ширину родителя */
-    padding: 20px 0;
+    padding: 20px 0 10px; /* Отступы: сверху 20px, снизу 10px */
     text-align: center;
     margin-bottom: 20px; /* Отступ снизу */
-    border-radius: 12px; /* Закругленные углы */
+    border-radius: 0 0 12px 12px; /* Закругленные углы */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
 }
 
@@ -223,8 +225,73 @@ body, html {
     padding: 0;
     font-family: 'Montserrat', sans-serif; /* Основной шрифт */
 }
+
 .main-container {
     max-width: 1230px; /* Фиксированная ширина */
     margin: 0 auto; /* Центрирование */
-    padding: 20px; /* Внутренние отступы */
+    /*padding: 20px;*/ /* Внутренние отступы */
+}
+
+/* Медиа-запросы для адаптивности */
+
+/* Для экранов меньше 1200px */
+@media (max-width: 1200px) {
+    .image-card {
+        width: calc((100% - 40px) / 2); /* Две карточки в ряд */
+    }
+
+    h1 {
+        font-size: 60px; /* Уменьшаем размер заголовка */
+    }
+}
+
+/* Для экранов меньше 768px */
+@media (max-width: 768px) {
+    .image-card {
+        width: calc(100% - 40px); /* Одна карточка в ряд */
+    }
+
+    h1 {
+        font-size: 40px; /* Уменьшаем размер заголовка */
+    }
+
+    .filter label {
+        font-size: 14px; /* Уменьшаем размер текста фильтра */
+    }
+
+    .filter select {
+        font-size: 12px; /* Уменьшаем размер текста фильтра */
+    }
+
+    .modal-content {
+        max-height: 50vh; /* Уменьшаем высоту модального окна */
+    }
+
+    .modal-tag, .modal-description {
+        font-size: 14px; /* Уменьшаем размер текста в модальном окне */
+    }
+}
+
+/* Для экранов меньше 480px */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 30px; /* Уменьшаем размер заголовка */
+    }
+
+    .filter label {
+        display: block; /* Размещаем label и select на разных строках */
+        margin-bottom: 5px;
+    }
+
+    .filter select {
+        width: 100%; /* Растягиваем select на всю ширину */
+    }
+
+    .modal-content {
+        max-height: 40vh; /* Уменьшаем высоту модального окна */
+    }
+
+    .modal-tag, .modal-description {
+        font-size: 12px; /* Уменьшаем размер текста в модальном окне */
+    }
 }
