@@ -1,38 +1,42 @@
 ﻿/* Подключение пользовательского шрифта */
 @font-face {
-    font-family: 'KreadonEB'; /* Название шрифта, которое будет использоваться в CSS */
-    src: url('fonts/Kreadon-EB.otf') format('opentype'); /* Путь к файлу шрифта */
-    font-weight: normal; /* Насыщенность шрифта */
-    font-style: normal; /* Стиль шрифта */
+    font-family: 'KreadonEB';
+    src: url('fonts/Kreadon-EB.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Подключение шрифта Playfair Display */
 @font-face {
-    font-family: 'PlayfairDisplay'; /* Название шрифта, которое будет использоваться в CSS */
-    src: url('fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype'); /* Путь к файлу шрифта */
-    font-weight: normal; /* Насыщенность шрифта */
-    font-style: normal; /* Стиль шрифта */
+    font-family: 'PlayfairDisplay';
+    src: url('fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-/* Подключение шрифта Montserrat */
+
 @font-face {
-    font-family: 'Montserrat'; /* Название шрифта, которое будет использоваться в CSS */
-    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype'); /* Путь к файлу шрифта */
-    font-weight: normal; /* Насыщенность шрифта */
-    font-style: normal; /* Стиль шрифта */
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Применение шрифта к заголовку h1 */
 h1 {
     font-family: 'KreadonEB', Arial, sans-serif;
     text-align: center;
-    color: #333;
-    margin-top: 5px; /* Еще меньше отступ сверху */
+    background: linear-gradient(to left, #7A8D9B, #B2B9BF, #E3D4D0, #EED0C6, #DABEB6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 70px;
+    font-size: 80px;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Основной шрифт для всего текста */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9; /* Светлый фон для всего документа */
+    color: #333;
+    background: linear-gradient(to left, #7A8D9B, #B2B9BF, #E3D4D0, #EED0C6, #DABEB6);
 }
 
 /* Стили для фильтра */
@@ -42,19 +46,28 @@ body {
 }
 
     .filter label {
-        font-family: 'Montserrat', sans-serif; /* Основной шрифт для всего текста */
+        font-family: 'Montserrat', sans-serif;
         font-size: 16px;
         margin-right: 10px;
+        color: #7A8D9B;
     }
 
     .filter select {
-        font-family: 'Montserrat', sans-serif; /* Основной шрифт для всего текста */
+        font-family: 'Montserrat', sans-serif;
         padding: 5px 10px;
         font-size: 14px;
         border-radius: 5px;
         border: 1px solid #ccc;
         cursor: pointer;
+        color: #7A8D9B;
+        background-color: #fff;
+        transition: all 0.3s ease;
     }
+
+        .filter select:hover {
+            border-color: #7A8D9B;
+            box-shadow: 0 0 8px rgba(122, 141, 155, 0.3);
+        }
 
 /* Стили для галереи */
 .gallery {
@@ -63,69 +76,73 @@ body {
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    background-color: #fff; /* Фон контейнера */
+    border-radius: 12px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+
 }
 
 /* Стили для карточки изображения */
 .image-card {
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    width: 300px;
+    width: calc((1200px - 60px) / 3); /* Ширина карточки с учетом отступов */
     text-align: center;
-    opacity: 1; /* По умолчанию карточка видима */
-    transform: scale(1); /* По умолчанию карточка в нормальном размере */
+    opacity: 1;
+    transform: scale(1);
 }
 
-    /* Стили для скрытой карточки */
     .image-card.hidden {
-        opacity: 0; /* Карточка становится прозрачной */
-        transform: scale(0.9); /* Карточка немного уменьшается */
-        pointer-events: none; /* Отключаем взаимодействие с карточкой */
+        opacity: 0;
+        transform: scale(0.9);
+        pointer-events: none;
     }
 
-    /* Стили для полностью скрытой карточки */
     .image-card.removed {
-        display: none; /* Карточка полностью скрыта и не занимает место */
+        display: none;
     }
 
-    /* Эффект при наведении на карточку */
     .image-card:hover {
-        transform: translateY(-5px) scale(1.05); /* Карточка поднимается и увеличивается */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Тень становится больше */
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    /* Стили для изображения внутри карточки */
     .image-card img {
         width: 100%;
         height: 200px;
         object-fit: cover;
         cursor: pointer;
+        border-bottom: 1px solid #ddd;
     }
 
 /* Стили для тега изображения */
 .image-tag {
-    background-color: #333;
+    background-color: #7A8D9B;
     color: #fff;
     padding: 5px 10px;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
+    border-radius: 0 0 12px 12px;
 }
 
 /* Стили для описания изображения */
 .image-description {
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
     color: #555;
     line-height: 1.5;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
 }
 
 /* Стили для модального окна */
 .modal {
-    display: none; /* Скрыто по умолчанию */
+    display: none;
     position: fixed;
     z-index: 1000;
     padding-top: 60px;
@@ -134,18 +151,18 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* Стили для изображения в модальном окне */
 .modal-content {
     margin: auto;
     display: block;
     max-width: 90%;
-    max-height: 70vh; /* Уменьшаем высоту, чтобы было место для текста */
+    max-height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Стили для кнопки закрытия модального окна */
 .close {
     position: absolute;
     top: 20px;
@@ -157,7 +174,6 @@ body {
     cursor: pointer;
 }
 
-    /* Эффект при наведении на кнопку закрытия */
     .close:hover,
     .close:focus {
         color: #bbb;
@@ -165,66 +181,50 @@ body {
         cursor: pointer;
     }
 
-/* Стили для тега в модальном окне */
 .modal-tag {
     text-align: center;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
+    background-color: rgba(122, 141, 155, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
 }
 
-/* Стили для описания в модальном окне */
 .modal-description {
     text-align: center;
     color: #fff;
     font-size: 16px;
     margin-top: 10px;
     padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 80%;
+    margin: 10px auto;
 }
 
-/* Стили для контейнера заголовка и фильтра */
 /* Стили для контейнера заголовка и фильтра */
 .header-container {
-    background-color: #4A90E2; /* Мягкий синий цвет */
-    width: 100%; /* На всю ширину экрана */
-    padding: 20px 0; /* Отступы сверху и снизу */
-    text-align: center; /* Выравнивание по центру */
-    margin: 0; /* Убираем внешние отступы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
+    background-color: white;
+    width: 100%; /* Ширина на всю ширину родителя */
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px; /* Отступ снизу */
+    border-radius: 12px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
 }
 
-    /* Стили для заголовка h1 внутри контейнера */
-    .header-container h1 {
-        color: #fff; /* Белый цвет текста */
-        margin-top: 0; /* Убираем отступ сверху */
-        margin-bottom: 10px; /* Отступ снизу */
-        font-size: 70px; /* Размер шрифта */
-    }
-
-    /* Стили для фильтра внутри контейнера */
-    .header-container .filter {
-        margin-bottom: 0; /* Убираем отступ снизу */
-    }
-
-        /* Стили для текста фильтра */
-        .header-container .filter label {
-            color: #fff; /* Белый цвет текста */
-            font-size: 16px; /* Размер шрифта */
-        }
-
-        /* Стили для выпадающего списка */
-        .header-container .filter select {
-            background-color: #fff; /* Белый фон */
-            color: #333; /* Темный текст */
-            border: 1px solid #ccc;
-            padding: 5px 10px; /* Отступы внутри */
-            font-size: 14px; /* Размер шрифта */
-            border-radius: 5px; /* Закругленные углы */
-            cursor: pointer; /* Курсор в виде указателя */
-        }
+/* Убираем отступы у body и html */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif; /* Основной шрифт */
+}
+.main-container {
+    max-width: 1230px; /* Фиксированная ширина */
+    margin: 0 auto; /* Центрирование */
+    padding: 20px; /* Внутренние отступы */
 }
